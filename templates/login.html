@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <body class="body">
+    <div align="center" class="loginpage">
+        <div align="center" class="loginframe">
+            <form action="/login/" method="POST">
+                {% csrf_token %}
+                <h2>Please sign in </h2>
+                <p id="error"></p>
+                <div class="formdiv">
+                    {{ uf.email }}
+                    {% if  uf.errors.email %}
+                        <span class="error-msg">{{ uf.errors.email.0 }}</span>
+                    {% endif %}
+                </div>
+                <div class="formdiv">
+                    {{ uf.password }}
+                    {% if  uf.errors.password %}
+                        <span class="error-msg">{{ uf.errors.password.0 }}</span>
+                    {% endif %}
+                </div>
+                <span class="error-msg">{{ error_msg }}</span>
+                <button class="login" type="submit">Sign in</button>
+                <p style="color: red">{{ login_error }}</p>
+            </form>
+        </div>
+    </div>
+    </body>
+{% endblock %}
+ 

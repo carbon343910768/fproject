@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/ty-login.js' %}"></script>
+    <body class="body">
+    <div align="center" class="registerpage">
+        <div class="registerframe" align="center">
+            <form method="POST" enctype="multipart/form-data">
+                <h2>register</h2>
+                <p id="error"></p>
+                {% csrf_token %}
+                <div class="formdiv">
+                    {{ uf.email }}
+                    {% if  uf.errors.email %}
+                        <span class="error-msg">{{ uf.errors.email.0 }}</span>
+                    {% endif %}
+                </div>
+                <div class="formdiv">
+                    {{ uf.username }}
+                    {% if  uf.errors.username %}
+                        <span class="error-msg">{{ uf.errors.username.0 }}</span>
+                    {% endif %}
+                </div>
+                <div class="formdiv">
+                    {{ uf.password }}
+                    {% if  uf.errors.password %}
+                        <span class="error-msg">{{ uf.errors.password.0 }}</span>
+                    {% endif %}
+                </div>
+                <div class="formdiv">
+                    {{ uf.password_confirmation }}
+                    {% if  uf.errors.password_confirmation %}
+                        <span class="error-msg">{{ uf.errors.password_confirmation.0 }}</span>
+                    {% endif %}
+                </div>
+                <span class="error-msg">{{ errorss }}</span>
+                <input class="login" type="submit" value="OK" />
+            </form>
+        </div>
+    </div>
+    </body>
+{% endblock %}

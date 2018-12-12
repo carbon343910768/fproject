@@ -1,0 +1,70 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/weibo2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <script type="text/javascript" src="../static/js/digg.js"></script>
+    <script type="text/javascript" src="../static/js/delete.js"></script>
+    <script type="text/javascript" src="http://www.huangwenyang.cn/static/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"> </script>
+    <body class="body">
+    <div align="center" class="postpage">
+        <div align="center" class="postframe">
+            <form action="../post_blog/" method="POST">
+                {% csrf_token %}
+                <h2>What happened today </h2>
+                <div class="formdiv">
+                    {{ uf.content }}
+                    {% if  uf.errors.content %}
+                        <span class="error-msg">{{ uf.errors.content.0 }}</span>
+                    {% endif %}
+                </div>
+                <span class="error-msg">{{ error_msg }}</span>
+                <button class="post_bu" type="submit">Post</button>
+                <p style="color: red">{{ login_error }}</p>
+            </form>
+        </div>
+    </div>
+    <div class="bloglist">
+    {% for i in post %}
+           <div id="blog{{ i.id }}" class = "blog" style=" border-radius: 10px;">
+               <div class="upper-level">
+                    <article class="post">
+                        <div class="post-head">
+                            <div class="post-meta">
+                                <div class="post-author"><p><a href="/author/wangsai/">{{ i.username }}</a></p></div>
+                                <div class="post-date">
+                                    <time >{{ i.pub_date }}</time>
+                                </div>
+                            </div>
+                         </div>
+                        <div class="post-content">
+                            <p >{{ i.content }}</p>
+                        </div>
+                        </article>
+                    </div>
+                    <footer class="post-footer clearfix">
+                            <div class="card-group" style="">
+                                <div class="card" style="float: left; width:760px; border-radius: 10px;">
+                                    <div style="float: left">
+                                        <button {% ifequal y 1 %} class="active"{% endifequal %}                                               style="background: #ffffff00;  border:none"
+                                                id="like{{ i.id }}" onclick="change_like(this, 'article', {{ i.id }})">
+                                            LIKE({{ i.like }})</button>
+                                    </div>
+                                    {% if username == i.username %}
+                                    <div id="deletefiled{{ i.id }}" style="float: right">
+                                        <button style="background: #ffffff00;  border:none"
+                                                onclick="change_delete(this, 'article', {{ i.id }})"
+                                                id="delete{{ i.id }}">delete</button>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                    </footer>
+
+                </div>
+    {% endfor %}
+    </div>
+    </body>
+{% endblock %}

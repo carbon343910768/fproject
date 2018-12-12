@@ -1,0 +1,148 @@
+body{
+    font-family: "Microsoft YaHei", sans-serif;
+    background-image: url('../img/background.jpg');
+}
+
+.frame_nav{
+    font-size: 14px;
+}
+
+/* <!--- frame-a ---!> */
+.wb_frame_a{
+    margin: 0 auto;
+    background:-webkit-linear-gradient(top, rgba(0,0,0,0) 50%,rgba(0,0,0,0.3) 100%);
+    background-image: url('../img/pexels-photo-442574.jpg');
+   
+    width: 920px;
+    height: 300px;
+    align-content: center;
+    text-align: center;
+    border-radius: 4px;
+}
+.pf_photo{
+    padding: 40px 0px 0px 0px;
+}
+.pf_image_show{
+    margin: 0 auto;
+}
+.pf_image_show img{
+    height: 100px;
+    width: 100px;
+    border-radius:50%;
+    border:1px solid white;  
+
+}
+.pf_username{
+    margin: 0 auto;
+    padding: 20px 0px 0px 0px;
+}
+.pf_username h1{
+    font-size: 24px;
+    text-shadow: 0 0 4px rgba(0,0,0,0.5);
+}
+.pf_intro{
+    margin: 20 auto;
+    font-size: 12px;
+    text-shadow: 0 0 4px rgba(0,0,0,0.5);
+}
+.pf_opt{
+    margin: 20 auto;
+}
+/* <!--- frame-b ---!> */
+
+/* <!--- frame-c ---!> */
+
+/*<!--- blog_list---!> */
+.bloglist{
+    margin: 0 auto;
+    width: 834px;
+}
+/*<!--- blog---!> */
+.blog{
+    background: white;
+    margin: 30px 0px 20px 0px;
+
+}
+.upper-level{
+    padding: 20px 30px 0px 30px;
+    display: flex;
+}
+a:hover{
+    text-decoration: none;
+    color: black;
+}
+.col-md-8 main-content{
+  align-content: center;
+}
+.row{
+  align-content:center;
+}
+
+.post {
+    padding: 0px 0px 0px 0px;
+    background: #ffffff;
+    margin-bottom: 0px;
+    position: relative;
+    overflow: hidden;
+  }
+.image-show{
+    width: 100px;
+    padding: 0px 16px 0px 0px;
+}
+.image-show img{
+    height: 60px;
+    width: 60px;
+}
+.post-author{
+    text-align: left;
+    width: 50%;
+}
+.post-author a{
+    color: #337ab7;
+}
+.post-date{
+    text-align: right;
+    width: 50%;
+    float: right;
+}
+.post-head{
+    text-align: center;
+    color: black;
+}
+.post-meta{
+    display: flex;
+    width:760px;
+}
+.post-meta time{
+    color: gray;
+    font-size: 14px;
+
+}
+.post-title{
+    margin : 0px 0px 10px 0px;
+}
+.card{
+    text-align: center;
+    
+    padding: 8px 0px 8px 20px;
+    background: white;
+}
+.card a{
+    color: gray;
+    font-size: 12px;
+}
+.card a:active{
+    color: red;
+}
+
+.post-content{
+    font-size: 14px;
+    padding: 0px 0px 0px 10px;
+}
+.post-permalink{
+    text-align: right;
+}
+.active{
+    color:gray;
+
+}
